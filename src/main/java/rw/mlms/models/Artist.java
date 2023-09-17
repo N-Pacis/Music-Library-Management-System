@@ -1,9 +1,6 @@
 package rw.mlms.models;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import rw.mlms.audits.InitiatorAudit;
@@ -15,6 +12,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "artists")
 public class Artist extends TimestampAudit {
@@ -30,4 +28,5 @@ public class Artist extends TimestampAudit {
     @JoinColumn(name = "registered_by")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User registeredBy;
+
 }
